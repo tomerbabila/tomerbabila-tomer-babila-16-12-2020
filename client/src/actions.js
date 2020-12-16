@@ -5,23 +5,23 @@ export const addToItemList = (items) => {
   };
 };
 
-export const removeFromItemList = (item) => {
+export const addToStoreItemList = (stores) => {
   return {
-    type: 'REMOVE_FROM_ITEM_LIST',
-    payload: item,
+    type: 'ADD_TO_STORE_ITEM_LIST',
+    payload: stores,
   };
 };
 
-export const addToStoreList = (store) => {
-  return {
-    type: 'ADD_TO_STORE_LIST',
-    payload: store,
-  };
-};
-
-export const addToReceivedList = (item) => {
+export const addToReceivedList = (items) => {
   return {
     type: 'ADD_TO_RECEIVED_LIST',
-    payload: item,
+    payload: items,
+  };
+};
+
+export const addToStoreReceivedList = (stores) => {
+  return {
+    type: 'ADD_TO_STORE_RECEIVED_LIST',
+    payload: stores,
   };
 };

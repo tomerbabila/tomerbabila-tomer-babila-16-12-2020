@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToItemList, addToStoreList } from '../actions';
+import { addToItemList, addToStoreItemList } from '../actions';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
@@ -8,7 +8,7 @@ const { TabPane } = Tabs;
 function ItemList() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.itemList);
-  const stores = useSelector((state) => state.storeList);
+  const stores = useSelector((state) => state.storeItemList);
 
   // Load all items and stores to state
   useEffect(() => {
@@ -16,7 +16,7 @@ function ItemList() {
       const data = await fetch('/api/v1/items').then((res) => res.json());
       const storesFromData = data.map((storeData) => storeData.store);
       dispatch(addToItemList(data));
-      dispatch(addToStoreList(storesFromData));
+      dispatch(addToStoreItemList(storesFromData));
     })();
   }, []);
 
@@ -26,7 +26,7 @@ function ItemList() {
       <Tabs defaultActiveKey='1' tabPosition={'left'} style={{ height: 220 }}>
         {items &&
           items.map((storeData) => (
-            <TabPane tab={`Tab-${storeData.store}`} key={storeData.store}>
+            <TabPane tab={`${storeData.store}`} key={storeData.store}>
               {storeData.items &&
                 storeData.items.map((item) => (
                   <div key={item.id}>{item.name}</div>
