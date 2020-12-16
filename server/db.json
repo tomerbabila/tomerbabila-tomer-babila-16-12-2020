@@ -6,19 +6,19 @@
         {
           "id": "PFRQeCevZwAsGZrdTOurL",
           "name": "iPhone 12",
-          "price": "254.32",
+          "price": 254.32,
           "deliveryESTDate": "01/12/2020"
         },
         {
           "id": "KonHVEjzFaTnNPVnWHbMd",
           "name": "harmonica",
-          "price": "35.17",
+          "price": 35.17,
           "deliveryESTDate": "28/12/2020"
         },
         {
           "id": "cIckYiWOOmKFhxEAYvAPd",
           "name": "Sony headphones",
-          "price": "159.20",
+          "price": 159.2,
           "deliveryESTDate": "12/01/2021"
         }
       ]
@@ -29,25 +29,25 @@
         {
           "id": "vAdcTRJnFTQxOweROsFYZ",
           "name": "iPhone purple case",
-          "price": "4.02",
+          "price": 4.02,
           "deliveryESTDate": "15/01/2021"
         },
         {
           "id": "wsKnIJsTRzCPPTdzVBQmc",
           "name": "Nike T-shirt",
-          "price": "37.62",
+          "price": 37.62,
           "deliveryESTDate": "11/12/2020"
         },
         {
           "id": "qAnLoHkxXlbEEbbTqbRrB",
           "name": "Swiss watch",
-          "price": "73.28",
+          "price": 73.28,
           "deliveryESTDate": "05/01/2021"
         },
         {
           "id": "KyTNXGogGiBlJziDiGzHz",
           "name": "Huge puzzle",
-          "price": "18.23",
+          "price": 18.23,
           "deliveryESTDate": "27/01/2021"
         }
       ]
@@ -58,13 +58,13 @@
         {
           "id": "dAhYVxnWAHUwOvtVMLiAx",
           "name": "The Very Hungry Caterpillar",
-          "price": "7.42",
+          "price": 7.42,
           "deliveryESTDate": "27/11/2020"
         },
         {
           "id": "yhWcHlMlVyVPmDkbUbMHo",
           "name": "A Promised Land",
-          "price": "39.10",
+          "price": 39.1,
           "deliveryESTDate": "24/12/2020"
         }
       ]
@@ -75,25 +75,25 @@
         {
           "id": "SmIrbZqBYvaNumCWwtSNu",
           "name": "Herschel bag",
-          "price": "18.20",
+          "price": 18.2,
           "deliveryESTDate": "15/01/2021"
         },
         {
           "id": "jlJWkSGXmOXYiAMdSqJba",
           "name": "Nike shoes",
-          "price": "96.33",
+          "price": 96.33,
           "deliveryESTDate": "20/12/2020"
         },
         {
           "id": "DKjSuiKEZUcISuHQTtcJt",
           "name": "Adidas hoodie",
-          "price": "45.88",
+          "price": 45.88,
           "deliveryESTDate": "14/12/2020"
         },
         {
           "id": "toysOXaCrUgzFnYaHlQkh",
           "name": "Tommy Hilfiger hat",
-          "price": "36.47",
+          "price": 36.47,
           "deliveryESTDate": "30/12/2020"
         }
       ]
@@ -106,13 +106,13 @@
         {
           "id": "zzOLjcQYZqCxAzXTfPYAh",
           "name": "Strip for guitar",
-          "price": "13.91",
+          "price": 13.91,
           "deliveryESTDate": "03/12/2020"
         },
         {
           "id": "bjmAKwKJIdqJAdQXiRZSa",
           "name": "Phone charger",
-          "price": "3.77",
+          "price": 3.77,
           "deliveryESTDate": "12/12/2020"
         }
       ]
