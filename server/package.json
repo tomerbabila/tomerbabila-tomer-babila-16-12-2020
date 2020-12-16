@@ -5,8 +5,14 @@
   "repository": "https://github.com/tomertv2/tomertv2-tomer-babila-16-12-2020",
   "author": "Tomer Babila",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.8"
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
   }
 }

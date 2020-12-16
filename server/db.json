@@ -1,0 +1,74 @@
+[
+  {
+    "name": "iPhone 12",
+    "store": "Amazon",
+    "price": "254.32",
+    "deliveryESTDate": "01/12/2020"
+  },
+  {
+    "name": "harmonica",
+    "store": "Amazon",
+    "price": "35.17",
+    "deliveryESTDate": "28/12/2020"
+  },
+  {
+    "name": "Sony headphones",
+    "store": "Amazon",
+    "price": "159.20",
+    "deliveryESTDate": "12/01/2021"
+  },
+  {
+    "name": "iPhone purple case",
+    "store": "eBay",
+    "price": "4.02",
+    "deliveryESTDate": "15/01/2021"
+  },
+  {
+    "name": "Nike T-shirt",
+    "store": "eBay",
+    "price": "37.62",
+    "deliveryESTDate": "11/12/2020"
+  },
+  {
+    "name": "Swiss watch",
+    "store": "eBay",
+    "price": "73.28",
+    "deliveryESTDate": "05/01/2021"
+  },
+  {
+    "name": "The Very Hungry Caterpillar",
+    "store": "Book Depository",
+    "price": "7.42",
+    "deliveryESTDate": "27/11/2020"
+  },
+  {
+    "name": "A Promised Land",
+    "store": "Book Depository",
+    "price": "39.10",
+    "deliveryESTDate": "24/12/2020"
+  },
+  {
+    "name": "Herschel bag",
+    "store": "Asos",
+    "price": "18.20",
+    "deliveryESTDate": "15/01/2021"
+  },
+  {
+    "name": "Nike shoes",
+    "store": "Asos",
+    "price": "96.33",
+    "deliveryESTDate": "20/12/2020"
+  },
+  {
+    "name": "Adidas hoodie",
+    "store": "Asos",
+    "price": "45.88",
+    "deliveryESTDate": "14/12/2020"
+  },
+  {
+    "name": "Tommy Hilfiger hat",
+    "store": "Asos",
+    "price": "36.47",
+    "deliveryESTDate": "30/12/2020"
+  }
+]
