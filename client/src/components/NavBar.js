@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div>
       <h2>Items Tracker</h2>
-      <div>
+      <div className='NavBar'>
         <div>
           <Link to={'/list'}>List</Link>
         </div>

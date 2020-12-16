@@ -1,16 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
-// Imports for redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers/rootReducer';
-
-// Imports for MDBootstrap
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
-import 'bootstrap-css-only/css/bootstrap.min.css'; 
-import 'mdbreact/dist/css/mdb.css';
+import 'antd/dist/antd.css';
 
 const store = createStore(
   reducer,

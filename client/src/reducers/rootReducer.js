@@ -1,6 +1,7 @@
 const initialState = {
   itemList: [],
   storeList: [],
+  receivedList: [],
 };
 
 function reducer(state = initialState, action) {
@@ -11,6 +12,8 @@ function reducer(state = initialState, action) {
       return { ...state, itemList: action.payload };
     case 'ADD_TO_STORE_LIST':
       return { ...state, storeList: action.payload };
+    case 'ADD_TO_RECEIVED_LIST':
+      return { ...state, receivedList: action.payload };
     default:
       return state;
   }
