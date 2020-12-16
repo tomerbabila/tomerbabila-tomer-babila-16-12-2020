@@ -1,15 +1,6 @@
-const express = require('express');
-const db = require('../database/database');
-const app = express();
+const { Router } = require('express');
+const router = Router();
 
-// GET all items from database
-app.get('/', async (req, res) => {
-  try {
-    const items = await db.get('itemList').value();
-    res.send(items);
-  } catch (error) {
-    console.log(error);
-  }
-});
+router.use('/v1', require('./v1'));
 
-module.exports = app;
+module.exports = router;
