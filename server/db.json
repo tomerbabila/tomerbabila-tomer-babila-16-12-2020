@@ -42,16 +42,14 @@
     },
     {
       "store": "Book Depository",
-      "item": [
+      "items": [
         {
           "name": "The Very Hungry Caterpillar",
-          "store": "Book Depository",
           "price": "7.42",
           "deliveryESTDate": "27/11/2020"
         },
         {
           "name": "A Promised Land",
-          "store": "Book Depository",
           "price": "39.10",
           "deliveryESTDate": "24/12/2020"
         }
@@ -62,25 +60,21 @@
       "items": [
         {
           "name": "Herschel bag",
-          "store": "Asos",
           "price": "18.20",
           "deliveryESTDate": "15/01/2021"
         },
         {
           "name": "Nike shoes",
-          "store": "Asos",
           "price": "96.33",
           "deliveryESTDate": "20/12/2020"
         },
         {
           "name": "Adidas hoodie",
-          "store": "Asos",
           "price": "45.88",
           "deliveryESTDate": "14/12/2020"
         },
         {
           "name": "Tommy Hilfiger hat",
-          "store": "Asos",
           "price": "36.47",
           "deliveryESTDate": "30/12/2020"
         }

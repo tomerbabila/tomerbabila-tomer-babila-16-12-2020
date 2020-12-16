@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('../database/database');
 const app = express();
 
-// GET all items from mock data
+// GET all items from database
 app.get('/', async (req, res) => {
   try {
     const items = await db.get('itemList').value();

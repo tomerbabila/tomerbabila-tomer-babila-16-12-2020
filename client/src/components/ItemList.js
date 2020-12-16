@@ -11,9 +11,7 @@ function ItemList() {
   useEffect(() => {
     (async () => {
       const data = await fetch('/api/').then((res) => res.json());
-      const storesFromData = Array.from(
-        new Set(data.map((item) => item.store))
-      );
+      const storesFromData = data.map((storeData) => storeData.store);
       dispatch(addToItemList(data));
       dispatch(addToStoreList(storesFromData));
     })();
@@ -21,11 +19,14 @@ function ItemList() {
 
   return (
     <div>
-      {items.map((item, i) => (
-        <div key={i}>
-          <span>{item.name}</span>
-        </div>
-      ))}
+      {items &&
+        items.map((storeData) => (
+          <ul key={storeData.store}>
+            <h3>{storeData.store}</h3>
+            {storeData.items &&
+              storeData.items.map((item) => <li>{item.name}</li>)}
+          </ul>
+        ))}
     </div>
   );
 }

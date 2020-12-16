@@ -5,6 +5,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers/rootReducer';
 
+// Imports for MDBootstrap
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
+
 const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
