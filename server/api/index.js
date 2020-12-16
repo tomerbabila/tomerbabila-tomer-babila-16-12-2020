@@ -1,11 +1,11 @@
 const express = require('express');
-const fs = require('fs').promises;
+const db = require('../database/database');
 const app = express();
 
 // GET all items from mock data
 app.get('/', async (req, res) => {
   try {
-    const items = await fs.readFile('./db.json');
+    const items = await db.get('itemList').value();
     res.send(items);
   } catch (error) {
     console.log(error);
