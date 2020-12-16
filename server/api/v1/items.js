@@ -25,15 +25,29 @@ router.post('/', (req, res) => {
       db.get('itemList')
         .find({ store: newItemStore })
         .get('items')
-        .push({ id: nanoid(), ...newItem })
+        .push({ id: newItem.id ? newItem.id : nanoid(), ...newItem })
         .write();
     } else {
       db.get('itemList')
-        .push({ store: newItemStore, items: [{ id: nanoid(), ...newItem }] })
+        .push({
+          store: newItemStore,
+          items: [{ id: newItem.id ? newItem.id : nanoid(), ...newItem }],
+        })
         .write();
     }
     console.log(newItem);
     res.send(newItem);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// DELETE an item (move to receivedItems)
+router.delete('/', (req, res) => {
+  try {
+    const { id, store } = req.body;
+    db.get('itemList').find({ store }).get('items').remove({ id }).write();
+    res.send({ remove: 'success' });
   } catch (error) {
     console.log(error);
   }
