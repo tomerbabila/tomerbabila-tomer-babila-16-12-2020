@@ -21,11 +21,13 @@ function ItemList() {
     <div>
       {items &&
         items.map((storeData) => (
-          <ul key={storeData.store}>
+          <div key={storeData.store}>
             <h3>{storeData.store}</h3>
-            {storeData.items &&
-              storeData.items.map((item) => <li>{item.name}</li>)}
-          </ul>
+            <ul>
+              {storeData.items &&
+                storeData.items.map((item, i) => <li key={i}>{item.name}</li>)}
+            </ul>
+          </div>
         ))}
     </div>
   );
