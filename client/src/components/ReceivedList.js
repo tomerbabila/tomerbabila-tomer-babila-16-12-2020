@@ -8,8 +8,8 @@ const { TabPane } = Tabs;
 
 function ReceivedList() {
   const dispatch = useDispatch();
+  
   const receivedItems = useSelector((state) => state.mainReducer.receivedList);
-  // const stores = useSelector((state) => state.storeReceivedList);
 
   // Load all items and stores to state
   useEffect(() => {

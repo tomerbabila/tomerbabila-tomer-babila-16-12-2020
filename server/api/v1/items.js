@@ -25,17 +25,16 @@ router.post('/', (req, res) => {
       db.get('itemList')
         .find({ store: newItemStore })
         .get('items')
-        .push({ id: newItem.id ? newItem.id : nanoid(), ...newItem })
+        .push({ ...newItem, id: newItem.id ? newItem.id : nanoid() })
         .write();
     } else {
       db.get('itemList')
         .push({
           store: newItemStore,
-          items: [{ id: newItem.id ? newItem.id : nanoid(), ...newItem }],
+          items: [{ ...newItem, id: newItem.id ? newItem.id : nanoid() }],
         })
         .write();
     }
-    console.log(newItem);
     res.send(newItem);
   } catch (error) {
     console.log(error);
