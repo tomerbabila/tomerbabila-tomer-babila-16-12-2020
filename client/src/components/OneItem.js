@@ -1,13 +1,12 @@
 import React from 'react';
 import { Card, Typography, Button } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { editItemList } from '../actions';
 
 const { Paragraph, Text } = Typography;
 
 function OneItem({ itemData, storeName }) {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.mainReducer.itemList);
 
   const moveItemToReceivedItems = async () => {
     const deleteReqBody = {
@@ -39,7 +38,9 @@ function OneItem({ itemData, storeName }) {
     }).then((response) => response.json());
 
     // Change state
-    dispatch()
+    // TODO: change fetch to local state change (slice from array)
+    const newState = await fetch('/api/v1/items').then((res) => res.json());
+    dispatch(editItemList(newState));
   };
 
   return (
