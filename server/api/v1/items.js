@@ -46,8 +46,13 @@ router.post('/', (req, res) => {
 router.delete('/', (req, res) => {
   try {
     const { id, store } = req.body;
-    db.get('itemList').find({ store }).get('items').remove({ id }).write();
-    res.send({ remove: 'success' });
+    const removedItem = db
+      .get('itemList')
+      .find({ store })
+      .get('items')
+      .remove({ id })
+      .write();
+    res.send(...removedItem);
   } catch (error) {
     console.log(error);
   }
