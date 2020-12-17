@@ -24,14 +24,21 @@ function ItemList() {
   return (
     <div>
       {/* TODO: make tabPosition responsive - 'top' in small screens */}
-      <Tabs defaultActiveKey='1' tabPosition={'left'} size={'large'} style={{ height: 220 }}>
+      <Tabs
+        defaultActiveKey='1'
+        tabPosition={window.innerWidth > 600 ? 'left' : 'top'}
+        size={'large'}
+      >
         {items &&
           items.map((storeData) => (
-            <TabPane tab={`${storeData.store}`} key={storeData.store}>
+            <TabPane tab={`${storeData.store}`} key={storeData.store} style={{height: 500, overflow: 'auto'}}>
               {storeData.items &&
                 storeData.items.map((item) => (
-                  // <div key={item.id}>{item.name}</div>
-                  <OneItem key={item.id} itemData={item} storeName={storeData.store} />
+                  <OneItem
+                    key={item.id}
+                    itemData={item}
+                    storeName={storeData.store}
+                  />
                 ))}
             </TabPane>
           ))}
