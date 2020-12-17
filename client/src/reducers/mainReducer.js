@@ -6,7 +6,7 @@ const initialState = {
   currency: 0,
 };
 
-function reducer(state = initialState, action) {
+function mainReducer(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TO_ITEM_LIST':
       return { ...state, itemList: action.payload };
@@ -23,4 +23,4 @@ function reducer(state = initialState, action) {
   }
 }
 
-export default reducer;
+export default mainReducer;

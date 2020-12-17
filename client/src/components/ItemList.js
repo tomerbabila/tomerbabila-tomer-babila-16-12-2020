@@ -7,7 +7,7 @@ const { TabPane } = Tabs;
 
 function ItemList() {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.itemList);
+  const items = useSelector((state) => state.mainReducer.itemList);
   // const stores = useSelector((state) => state.storeItemList);
 
   // Load all items and stores to state
