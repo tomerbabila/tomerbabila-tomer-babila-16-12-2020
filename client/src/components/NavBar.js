@@ -12,18 +12,11 @@ function NavBar() {
   return (
     <div>
       <h2>Items Tracker</h2>
-      {/* <div className='NavBar'> */}
       <Menu
         mode='horizontal'
         onClick={(e) => dispatch(changeTab(e.key))}
         selectedKeys={tab}
       >
-        {/* <div>
-          <Link to={'/list'}>List</Link>
-        </div>
-        <div>
-          <Link to={'/received'}>Received</Link>
-        </div> */}
         <Menu.Item key='list' icon={<ProfileOutlined />}>
           <Link to={'/list'}>List</Link>
         </Menu.Item>
@@ -31,7 +24,6 @@ function NavBar() {
           <Link to={'/received'}>Received</Link>
         </Menu.Item>
       </Menu>
-      {/* </div> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,24 +16,44 @@ function App() {
   const dispatch = useDispatch();
   const lastCurrency = useSelector((state) => state.mainReducer.currency);
 
+  // Use hash function to check if the state has been changed
+  const hashString = useCallback((str) => {
+    var hash = 0;
+    if (str.length === 0) {
+      return hash;
+    }
+    for (var i = 0; i < str.length; i++) {
+      var char = str.charCodeAt(i);
+      hash = (hash << 5) - hash + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+  }, []);
+
   // Fetch current currency base on USD every 10 seconds
   useEffect(() => {
-    // TODO: Do not change state if it is the same
     const getCurrency = async () => {
       const currentCurrency = await fetch(
         'https://api.exchangeratesapi.io/latest?base=USD'
       ).then((res) => res.json());
-      if (JSON.stringify(lastCurrency) !== JSON.stringify(currentCurrency)) {
+
+      // Change the state if it changed
+      if (
+        hashString(JSON.stringify(lastCurrency)) !==
+        hashString(JSON.stringify(currentCurrency))
+      ) {
         dispatch(updateCurrency(currentCurrency));
       }
-      console.log(currentCurrency);
     };
+
     getCurrency();
+
     const interval = setInterval(() => getCurrency(), 10000);
+
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [dispatch, hashString, lastCurrency]);
 
   return (
     <div className='App'>
