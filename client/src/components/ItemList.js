@@ -8,7 +8,7 @@ const { TabPane } = Tabs;
 function ItemList() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.itemList);
-  const stores = useSelector((state) => state.storeItemList);
+  // const stores = useSelector((state) => state.storeItemList);
 
   // Load all items and stores to state
   useEffect(() => {
@@ -18,12 +18,12 @@ function ItemList() {
       dispatch(addToItemList(data));
       dispatch(addToStoreItemList(storesFromData));
     })();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
       {/* TODO: make tabPosition responsive - 'top' in small screens */}
-      <Tabs defaultActiveKey='1' tabPosition={'left'} style={{ height: 220 }}>
+      <Tabs defaultActiveKey='1' tabPosition={'left'} size={'large'} style={{ height: 220 }}>
         {items &&
           items.map((storeData) => (
             <TabPane tab={`${storeData.store}`} key={storeData.store}>

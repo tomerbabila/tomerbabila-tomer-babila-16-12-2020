@@ -8,7 +8,7 @@ const { TabPane } = Tabs;
 function ReceivedList() {
   const dispatch = useDispatch();
   const receivedItems = useSelector((state) => state.receivedList);
-  const stores = useSelector((state) => state.storeReceivedList);
+  // const stores = useSelector((state) => state.storeReceivedList);
 
   // Load all items and stores to state
   useEffect(() => {
@@ -18,7 +18,7 @@ function ReceivedList() {
       dispatch(addToReceivedList(data));
       dispatch(addToStoreReceivedList(storesFromData));
     })();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

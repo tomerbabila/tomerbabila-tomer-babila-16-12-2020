@@ -25,3 +25,10 @@ export const addToStoreReceivedList = (stores) => {
     payload: stores,
   };
 };
+
+export const updateCurrency = (currency) => {
+  return {
+    type: 'UPDATE_CURRENCY',
+    payload: currency,
+  };
+};

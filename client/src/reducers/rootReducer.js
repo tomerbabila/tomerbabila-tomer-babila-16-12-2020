@@ -3,6 +3,7 @@ const initialState = {
   storeItemList: [],
   receivedList: [],
   storeReceivedList: [],
+  currency: 0,
 };
 
 function reducer(state = initialState, action) {
@@ -15,6 +16,8 @@ function reducer(state = initialState, action) {
       return { ...state, receivedList: action.payload };
     case 'ADD_TO_STORE_RECEIVED_LIST':
       return { ...state, storeReceivedList: action.payload };
+    case 'UPDATE_CURRENCY':
+      return { ...state, currency: action.payload };
     default:
       return state;
   }
