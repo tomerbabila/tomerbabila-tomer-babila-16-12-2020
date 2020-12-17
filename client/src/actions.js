@@ -5,12 +5,12 @@ export const editItemList = (items) => {
   };
 };
 
-export const editStoreItemList = (stores) => {
-  return {
-    type: 'EDIT_STORE_ITEM_LIST',
-    payload: stores,
-  };
-};
+// export const editStoreItemList = (stores) => {
+//   return {
+//     type: 'EDIT_STORE_ITEM_LIST',
+//     payload: stores,
+//   };
+// };
 
 export const editReceivedList = (items) => {
   return {
@@ -19,12 +19,12 @@ export const editReceivedList = (items) => {
   };
 };
 
-export const editStoreReceivedList = (stores) => {
-  return {
-    type: 'EDIT_STORE_RECEIVED_LIST',
-    payload: stores,
-  };
-};
+// export const editStoreReceivedList = (stores) => {
+//   return {
+//     type: 'EDIT_STORE_RECEIVED_LIST',
+//     payload: stores,
+//   };
+// };
 
 export const updateCurrency = (currency) => {
   return {

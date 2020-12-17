@@ -14,7 +14,7 @@ import './styles/App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const lastCurrency = useSelector((state) => state.mainReducer.currency);
+  const lastCurrency = useSelector((state) => state.currencyReducer.currency);
 
   // Use hash function to check if the state has been changed
   const hashString = useCallback((str) => {

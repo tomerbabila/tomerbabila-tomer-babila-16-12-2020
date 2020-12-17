@@ -21,12 +21,6 @@
       "store": "eBay",
       "items": [
         {
-          "id": "vAdcTRJnFTQxOweROsFYZ",
-          "name": "iPhone purple case",
-          "price": 4.02,
-          "deliveryESTDate": "15/01/2021"
-        },
-        {
           "id": "wsKnIJsTRzCPPTdzVBQmc",
           "name": "Nike T-shirt",
           "price": 37.62,
@@ -118,6 +112,17 @@
           "id": "SmIrbZqBYvaNumCWwtSNu",
           "name": "Herschel bag",
           "price": 18.2,
+          "deliveryESTDate": "15/01/2021"
+        }
+      ]
+    },
+    {
+      "store": "eBay",
+      "items": [
+        {
+          "id": "vAdcTRJnFTQxOweROsFYZ",
+          "name": "iPhone purple case",
+          "price": 4.02,
           "deliveryESTDate": "15/01/2021"
         }
       ]
