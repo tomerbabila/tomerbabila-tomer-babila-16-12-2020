@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import OneReceivedItem from './OneReceivedItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { editReceivedList } from '../actions';
 import { Tabs } from 'antd';
@@ -13,7 +14,9 @@ function ReceivedList() {
   // Load all items and stores to state
   useEffect(() => {
     (async () => {
-      const data = await fetch('/api/v1/receivedItems').then((res) => res.json());
+      const data = await fetch('/api/v1/receivedItems').then((res) =>
+        res.json()
+      );
       dispatch(editReceivedList(data));
     })();
   }, [dispatch]);
@@ -21,13 +24,25 @@ function ReceivedList() {
   return (
     <div>
       {/* TODO: make tabPosition responsive - 'top' in small screens */}
-      <Tabs defaultActiveKey='1' tabPosition={'left'} style={{ height: 220 }}>
+      <Tabs
+        size={'large'}
+        defaultActiveKey='1'
+        tabPosition={window.innerWidth > 600 ? 'left' : 'top'}
+      >
         {receivedItems &&
           receivedItems.map((storeData) => (
-            <TabPane tab={`${storeData.store}`} key={storeData.store}>
+            <TabPane
+              tab={`${storeData.store}`}
+              key={storeData.store}
+              style={{ height: '50vh', overflow: 'auto' }}
+            >
               {storeData.items &&
                 storeData.items.map((item) => (
-                  <div key={item.id}>{item.name}</div>
+                  <OneReceivedItem
+                    key={item.id}
+                    itemData={item}
+                    storeName={storeData.store}
+                  />
                 ))}
             </TabPane>
           ))}
