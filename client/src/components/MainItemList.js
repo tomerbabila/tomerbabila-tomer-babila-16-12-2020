@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import ItemList from './ItemList';
 import { Tabs, Select } from 'antd';
-import { useDispatch } from 'react-redux';
-import { editItemList } from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { editItemList, changeUsingCurrency } from '../actions';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
 function MainItemList() {
   const dispatch = useDispatch();
+  const currency = useSelector((state) => state.currencyReducer.currency);
+  const usingCurrency = useSelector(
+    (state) => state.currencyReducer.usingCurrency
+  );
 
   useEffect(() => {
     (async () => {
@@ -18,23 +22,32 @@ function MainItemList() {
     })();
   }, [dispatch]);
 
+  const handleCurrencyChange = (value) => {
+    dispatch(
+      changeUsingCurrency({ sign: value, value: currency.rates[value] })
+    );
+  };
+
   return (
     <div style={{ width: '60vw' }}>
-      <Tabs
-        tabBarExtraContent={
-          <Select value='ils'>
-            <Option value='usd'>USD</Option>
-            <Option value='ils'>ILS</Option>
-          </Select>
-        }
-      >
-        <TabPane tab='Item List' key='1'>
-          <ItemList />
-        </TabPane>
-        <TabPane tab='Stores Information' key='2'>
-          Content of tab 2
-        </TabPane>
-      </Tabs>
+      {currency && (
+        <Tabs
+          tabBarExtraContent={
+            <Select value={usingCurrency.sign} onChange={handleCurrencyChange}>
+              {Object.keys(currency.rates).map((rateName) => (
+                <Option value={rateName} key={rateName}>{rateName}</Option>
+              ))}
+            </Select>
+          }
+        >
+          <TabPane tab='Item List' key='1'>
+            <ItemList />
+          </TabPane>
+          <TabPane tab='Stores Information' key='2'>
+            Content of tab 2
+          </TabPane>
+        </Tabs>
+      )}
     </div>
   );
 }

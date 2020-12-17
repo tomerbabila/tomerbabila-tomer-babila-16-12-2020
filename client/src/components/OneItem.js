@@ -1,12 +1,15 @@
 import React from 'react';
 import { Card, Typography, Button } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { editItemList } from '../actions';
 
 const { Paragraph, Text } = Typography;
 
 function OneItem({ itemData, storeName }) {
   const dispatch = useDispatch();
+  const usingCurrency = useSelector(
+    (state) => state.currencyReducer.usingCurrency
+  );
 
   const moveItemToReceivedItems = async () => {
     const deleteReqBody = {
@@ -54,7 +57,12 @@ function OneItem({ itemData, storeName }) {
       style={{ width: 300 }}
     >
       <Paragraph>
-        Price: <Text strong>{itemData.price}</Text>
+        Price:{' '}
+        <Text strong>
+          {(itemData.price * usingCurrency.value).toFixed(2)}
+          {' '}
+          {usingCurrency.sign}
+        </Text>
       </Paragraph>
       <Paragraph>
         Delivery estimated time: <Text strong>{itemData.deliveryESTDate}</Text>
