@@ -1,10 +1,14 @@
 import React from 'react';
 import { Card, Typography, Button } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
+import { editItemList } from '../actions';
 
 const { Paragraph, Text } = Typography;
 
 function OneItem({ itemData, storeName }) {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.mainReducer.itemList);
+
   const moveItemToReceivedItems = async () => {
     const deleteReqBody = {
       id: itemData.id,
@@ -33,6 +37,9 @@ function OneItem({ itemData, storeName }) {
       },
       body: JSON.stringify(postReqBody),
     }).then((response) => response.json());
+
+    // Change state
+    dispatch()
   };
 
   return (
@@ -43,8 +50,12 @@ function OneItem({ itemData, storeName }) {
       }
       style={{ width: 300 }}
     >
-      <Paragraph>Price: <Text strong>{itemData.price}</Text></Paragraph>
-      <Paragraph>Delivery estimated time: <Text strong>{itemData.deliveryESTDate}</Text></Paragraph>
+      <Paragraph>
+        Price: <Text strong>{itemData.price}</Text>
+      </Paragraph>
+      <Paragraph>
+        Delivery estimated time: <Text strong>{itemData.deliveryESTDate}</Text>
+      </Paragraph>
     </Card>
   );
 }

@@ -1,27 +1,27 @@
-export const addToItemList = (items) => {
+export const editItemList = (items) => {
   return {
-    type: 'ADD_TO_ITEM_LIST',
+    type: 'EDIT_ITEM_LIST',
     payload: items,
   };
 };
 
-export const addToStoreItemList = (stores) => {
+export const editStoreItemList = (stores) => {
   return {
-    type: 'ADD_TO_STORE_ITEM_LIST',
+    type: 'EDIT_STORE_ITEM_LIST',
     payload: stores,
   };
 };
 
-export const addToReceivedList = (items) => {
+export const editReceivedList = (items) => {
   return {
-    type: 'ADD_TO_RECEIVED_LIST',
+    type: 'EDIT_RECEIVED_LIST',
     payload: items,
   };
 };
 
-export const addToStoreReceivedList = (stores) => {
+export const editStoreReceivedList = (stores) => {
   return {
-    type: 'ADD_TO_STORE_RECEIVED_LIST',
+    type: 'EDIT_STORE_RECEIVED_LIST',
     payload: stores,
   };
 };

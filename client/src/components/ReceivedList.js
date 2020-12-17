@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToReceivedList, addToStoreReceivedList } from '../actions';
+import { editReceivedList, editStoreReceivedList } from '../actions';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
@@ -15,8 +15,8 @@ function ReceivedList() {
     (async () => {
       const data = await fetch('/api/v1/receivedItems').then((res) => res.json());
       const storesFromData = data.map((storeData) => storeData.store);
-      dispatch(addToReceivedList(data));
-      dispatch(addToStoreReceivedList(storesFromData));
+      dispatch(editReceivedList(data));
+      dispatch(editStoreReceivedList(storesFromData));
     })();
   }, [dispatch]);
 

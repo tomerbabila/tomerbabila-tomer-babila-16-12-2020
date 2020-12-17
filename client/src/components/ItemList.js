@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToItemList, addToStoreItemList } from '../actions';
+import { editItemList, editStoreItemList } from '../actions';
 import { Tabs } from 'antd';
 import OneItem from './OneItem';
 
@@ -16,8 +16,8 @@ function ItemList() {
     (async () => {
       const data = await fetch('/api/v1/items').then((res) => res.json());
       const storesFromData = data.map((storeData) => storeData.store);
-      dispatch(addToItemList(data));
-      dispatch(addToStoreItemList(storesFromData));
+      dispatch(editItemList(data));
+      dispatch(editStoreItemList(storesFromData));
     })();
   }, [dispatch]);
 
