@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrency } from './actions';
-import ItemList from './components/ItemList';
+import MainItemList from './components/MainItemList';
 import ReceivedList from './components/ReceivedList';
 import NavBar from './components/NavBar';
 import './styles/App.css';
@@ -61,7 +61,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route path='/list'>
-            <ItemList />
+            <MainItemList />
           </Route>
           <Route path='/received'>
             <ReceivedList />
