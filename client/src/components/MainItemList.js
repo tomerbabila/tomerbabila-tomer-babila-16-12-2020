@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ItemList from './ItemList';
+import StoresInfo from './StoresInfo';
 import { Tabs, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { editItemList, changeUsingCurrency } from '../actions';
@@ -44,7 +45,7 @@ function MainItemList() {
             <ItemList />
           </TabPane>
           <TabPane tab='Stores Information' key='2'>
-            Content of tab 2
+            <StoresInfo />
           </TabPane>
         </Tabs>
       )}
