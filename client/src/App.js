@@ -14,8 +14,7 @@ import './styles/App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const lastCurrency = useSelector((state) => state.currency);
-  console.log('object => ', lastCurrency);
+  const lastCurrency = useSelector((state) => state.mainReducer.currency);
 
   // Fetch current currency base on USD every 10 seconds
   useEffect(() => {
@@ -35,6 +34,7 @@ function App() {
       clearInterval(interval);
     };
   }, []);
+
   return (
     <div className='App'>
       <Router>
