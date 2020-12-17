@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToItemList, addToStoreItemList } from '../actions';
 import { Tabs } from 'antd';
+import OneItem from './OneItem';
 
 const { TabPane } = Tabs;
 
@@ -29,7 +30,8 @@ function ItemList() {
             <TabPane tab={`${storeData.store}`} key={storeData.store}>
               {storeData.items &&
                 storeData.items.map((item) => (
-                  <div key={item.id}>{item.name}</div>
+                  // <div key={item.id}>{item.name}</div>
+                  <OneItem key={item.id} itemData={item} storeName={storeData.store} />
                 ))}
             </TabPane>
           ))}
