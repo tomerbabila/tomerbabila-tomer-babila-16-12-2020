@@ -59,23 +59,6 @@
       ]
     },
     {
-      "store": "Book Depository",
-      "items": [
-        {
-          "id": "dAhYVxnWAHUwOvtVMLiAx",
-          "name": "The Very Hungry Caterpillar",
-          "price": 7.42,
-          "deliveryESTDate": 1606428000000
-        },
-        {
-          "id": "yhWcHlMlVyVPmDkbUbMHo",
-          "name": "A Promised Land",
-          "price": 39.1,
-          "deliveryESTDate": 1608760800000
-        }
-      ]
-    },
-    {
       "store": "Asos",
       "items": [
         {
@@ -107,6 +90,23 @@
           "name": "Coat",
           "price": 64.22,
           "id": "DQdbAmIdfyUnEw0GaRnO2"
+        }
+      ]
+    },
+    {
+      "store": "Book Depository",
+      "items": [
+        {
+          "id": "yhWcHlMlVyVPmDkbUbMHo",
+          "name": "A Promised Land",
+          "price": 39.1,
+          "deliveryESTDate": 1608760800000
+        },
+        {
+          "id": "dAhYVxnWAHUwOvtVMLiAx",
+          "name": "The Very Hungry Caterpillar",
+          "price": 7.42,
+          "deliveryESTDate": 1606428000000
         }
       ]
     }

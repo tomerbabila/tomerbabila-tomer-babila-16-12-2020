@@ -55,13 +55,13 @@ router.delete('/', (req, res) => {
 
     // Check if store is empty and if yes, delete it as well
     const checkStoreEmpty = db
-      .get('itemList')
+      .get('receivedList')
       .find({ store })
       .get('items')
       .value();
 
     if (checkStoreEmpty.length === 0) {
-      db.get('itemList').remove({ store }).write();
+      db.get('receivedList').remove({ store }).write();
     }
 
     res.send(...removedItem);
