@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config()
+require('dotenv').config();
 
 const app = express();
 
