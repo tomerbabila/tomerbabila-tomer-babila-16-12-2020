@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const db = require('../../database/database');
+const db = require('../../../database/database');
 const { nanoid } = require('nanoid');
 
 const router = Router();

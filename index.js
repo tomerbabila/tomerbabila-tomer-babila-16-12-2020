@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('./server/app');
 const port = 8080;
 
 app.listen(process.env.PORT || port, () => {

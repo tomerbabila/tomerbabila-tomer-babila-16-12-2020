@@ -1,11 +1,24 @@
 {
-  "name": "tomertv2-tomer-babila-16-12-2020",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/tomertv2/tomertv2-tomer-babila-16-12-2020.git",
-  "author": "tomertv2 <tomertv2@gmail.com>",
+  "repository": "https://github.com/tomertv2/tomertv2-tomer-babila-16-12-2020",
+  "author": "Tomer Babila",
   "license": "MIT",
   "scripts": {
-    "start": "cd server && yarn start"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.15.0",
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.20"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
