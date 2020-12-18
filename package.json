@@ -1,0 +1,11 @@
+{
+  "name": "tomertv2-tomer-babila-16-12-2020",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tomertv2/tomertv2-tomer-babila-16-12-2020.git",
+  "author": "tomertv2 <tomertv2@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd server && yarn start"
+  }
+}
