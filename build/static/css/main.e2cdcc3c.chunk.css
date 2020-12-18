@@ -1,2 +1,2 @@
 .App{display:flex;flex-direction:column;align-items:center;padding-top:10px}.App .navbar{margin-bottom:10px}.list-class{display:flex;flex-direction:row;flex-wrap:wrap;overflow:auto;height:70vh;flex-grow:1}.list-class .card-margin{margin:5px}.list-class .card-margin .card-class{width:270px;height:250px}.content-class{width:60vw}@media only screen and (max-width:850px){.list-class{max-height:60vh;flex-grow:1}.list-class .card-margin{margin:5px 0}.list-class .card-margin .card-class{width:80vw}.content-class{width:90vw}}
-/*# sourceMappingURL=main.3f711d78.chunk.css.map */
+/*# sourceMappingURL=main.e2cdcc3c.chunk.css.map */

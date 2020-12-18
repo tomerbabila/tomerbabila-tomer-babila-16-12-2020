@@ -75,6 +75,11 @@ function App() {
     window.addEventListener('resize', handleResize);
   });
 
+  // Set document title
+  useEffect(() => {
+    document.title = 'Items Tracker';
+  }, []);
+
   return (
     <div className='App'>
       <ErrorBoundary>
