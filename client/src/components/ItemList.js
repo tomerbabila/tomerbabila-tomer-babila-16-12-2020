@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { editItemList } from '../actions';
+import OneItem from './OneItem';
 import { PlusOutlined } from '@ant-design/icons';
 import {
   Tabs,
@@ -13,8 +15,6 @@ import {
   AutoComplete,
   message,
 } from 'antd';
-import OneItem from './OneItem';
-import { editItemList } from '../actions';
 
 const { TabPane } = Tabs;
 const { Text } = Typography;
@@ -26,11 +26,12 @@ const layout = {
 
 function ItemList() {
   const dispatch = useDispatch();
+
   const items = useSelector((state) => state.mainReducer.itemList);
   const screenSize = useSelector((state) => state.mainReducer.screenSize);
   const options = useSelector((state) => state.antdReducer.options);
 
-  // Local states for new item modal
+  // Local states for new item
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [newItemName, setNewItemName] = useState('');
@@ -38,10 +39,12 @@ function ItemList() {
   const [newItemDate, setNewItemDate] = useState(0);
   const [newItemPrice, setNewItemPrice] = useState(0);
 
+  // Press add new item
   const showModal = () => {
     setVisible(true);
   };
 
+  // Press ok in the modal
   const handleOk = () => {
     setConfirmLoading(true);
 
@@ -78,6 +81,7 @@ function ItemList() {
     })();
   };
 
+  // Press cancel in the modal
   const handleCancel = () => {
     setVisible(false);
   };

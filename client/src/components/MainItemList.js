@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import ItemList from './ItemList';
-import StoresInfo from './StoresInfo';
-import { Tabs, Select, Typography, Divider } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   editItemList,
@@ -9,6 +6,9 @@ import {
   updateTime,
   editOptions,
 } from '../actions';
+import ItemList from './ItemList';
+import StoresInfo from './StoresInfo';
+import { Tabs, Select, Typography, Divider } from 'antd';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -31,9 +31,11 @@ function MainItemList() {
         const itemsData = await fetch('/api/v1/items').then((res) =>
           res.json()
         );
+
         const allStores = itemsData.map((storeData) => {
           return { value: storeData.store };
         });
+
         dispatch(editItemList(itemsData));
         dispatch(editOptions(allStores));
       } catch (error) {
@@ -42,12 +44,14 @@ function MainItemList() {
     })();
   }, [dispatch]);
 
+  // Change currency state
   const handleCurrencyChange = (value) => {
     dispatch(
       changeUsingCurrency({ sign: value, value: currency.rates[value] })
     );
   };
 
+  // Change fetch time of currency 
   const handleChangeTime = (value) => {
     dispatch(updateTime(value));
   };

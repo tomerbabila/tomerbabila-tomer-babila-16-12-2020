@@ -14,6 +14,7 @@ function OneItem({ itemData, storeName }) {
 
   const [loading, setLoading] = useState(false);
 
+  // Set item as received
   const moveItemToReceivedItems = async () => {
     try {
       setLoading(true);

@@ -17,6 +17,7 @@ function MainReceivedList() {
   const usingCurrency = useSelector(
     (state) => state.currencyReducer.usingCurrency
   );
+
   // Load all items and stores to state
   useEffect(() => {
     (async () => {
@@ -31,12 +32,14 @@ function MainReceivedList() {
     })();
   }, [dispatch]);
 
+  // Change currency state
   const handleCurrencyChange = (value) => {
     dispatch(
       changeUsingCurrency({ sign: value, value: currency.rates[value] })
     );
   };
 
+  // Change fetch time of currency
   const handleChangeTime = (value) => {
     dispatch(updateTime(value));
   };

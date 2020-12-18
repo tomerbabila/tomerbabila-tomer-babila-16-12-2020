@@ -25,6 +25,7 @@ router.post('/', (req, res) => {
     const newItemStore = newItem.store;
     delete newItem.store;
     const allStores = db.get('itemList').map('store').value();
+
     if (allStores.includes(newItemStore)) {
       db.get('itemList')
         .find({ store: newItemStore })
@@ -39,6 +40,7 @@ router.post('/', (req, res) => {
         })
         .write();
     }
+
     res.send(newItem);
   } catch (error) {
     console.log(error);
@@ -49,14 +51,12 @@ router.post('/', (req, res) => {
 router.delete('/', (req, res) => {
   try {
     const { id, store } = req.body;
-
     const removedItem = db
       .get('itemList')
       .find({ store })
       .get('items')
       .remove({ id })
       .write();
-
     // Check if store is empty and if yes, delete it as well
     const checkStoreEmpty = db
       .get('itemList')

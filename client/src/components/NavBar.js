@@ -9,6 +9,7 @@ const { Title } = Typography;
 
 function NavBar() {
   const dispatch = useDispatch();
+  
   const tab = useSelector((state) => state.antdReducer.currentTab);
 
   return (

@@ -7,11 +7,11 @@ import {
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrency, screenSizeChanges } from './actions';
-import MainItemList from './components/MainItemList';
 import MainReceivedList from './components/MainReceivedList';
-import NavBar from './components/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
+import MainItemList from './components/MainItemList';
 import NotFound from './components/NotFound';
+import NavBar from './components/NavBar';
 import './styles/App.css';
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
     return hash;
   }, []);
 
-  // Fetch current currency base on USD every 10 seconds
   useEffect(() => {
     const getCurrency = async () => {
       try {
@@ -55,7 +54,7 @@ function App() {
     };
 
     getCurrency();
-
+    // Fetch current currency base on USD by configurable time
     const interval = setInterval(() => getCurrency(), time);
 
     return () => {
@@ -88,9 +87,7 @@ function App() {
             <Route path='/received'>
               <MainReceivedList />
             </Route>
-
             <Redirect exact from='/' to='/list' />
-
             <Route>
               <NotFound />
             </Route>
