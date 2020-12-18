@@ -6,7 +6,7 @@ function StoresInfo() {
   const items = useSelector((state) => state.mainReducer.itemList);
 
   return (
-    <div>
+    <div className='list-class'>
       {items.map((storeData) => (
         <StoreInfoCard key={storeData.store} storeData={storeData} />
       ))}

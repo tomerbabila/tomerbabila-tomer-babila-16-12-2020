@@ -32,3 +32,10 @@ export const changeTab = (tab) => {
     payload: tab,
   };
 };
+
+export const screenSizeChanges = (newSize) => {
+  return {
+    type: 'SCREEN_SIZE_CHANGES',
+    payload: newSize,
+  };
+};

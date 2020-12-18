@@ -8,8 +8,9 @@ const { TabPane } = Tabs;
 
 function ReceivedList() {
   const dispatch = useDispatch();
-  
+
   const receivedItems = useSelector((state) => state.mainReducer.receivedList);
+  const screenSize = useSelector((state) => state.mainReducer.screenSize);
 
   // Load all items and stores to state
   useEffect(() => {
@@ -23,18 +24,17 @@ function ReceivedList() {
 
   return (
     <div>
-      {/* TODO: make tabPosition responsive - 'top' in small screens */}
       <Tabs
         size={'large'}
         defaultActiveKey='1'
-        tabPosition={window.innerWidth > 600 ? 'left' : 'top'}
+        tabPosition={screenSize.width > 600 ? 'left' : 'top'}
       >
         {receivedItems &&
           receivedItems.map((storeData) => (
             <TabPane
               tab={`${storeData.store}`}
               key={storeData.store}
-              style={{ height: '50vh', overflow: 'auto' }}
+              className='list-class'
             >
               {storeData.items &&
                 storeData.items.map((item) => (

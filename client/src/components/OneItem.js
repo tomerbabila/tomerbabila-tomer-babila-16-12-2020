@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Typography, Button } from 'antd';
+import { Card, Typography, Button, Alert } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { editItemList } from '../actions';
 
@@ -47,27 +47,39 @@ function OneItem({ itemData, storeName }) {
   };
 
   return (
-    <Card
-      title={itemData.name}
-      extra={
-        <Button type='primary' onClick={() => moveItemToReceivedItems()}>
-          Received
-        </Button>
-      }
-      style={{ width: 300 }}
-    >
-      <Paragraph>
-        Price:{' '}
-        <Text strong>
-          {(itemData.price * usingCurrency.value).toFixed(2)}
-          {' '}
-          {usingCurrency.sign}
-        </Text>
-      </Paragraph>
-      <Paragraph>
-        Delivery estimated time: <Text strong>{itemData.deliveryESTDate}</Text>
-      </Paragraph>
-    </Card>
+    <div className='card-margin'>
+      <Card
+        title={itemData.name}
+        extra={
+          <Button type='primary' onClick={() => moveItemToReceivedItems()}>
+            Received
+          </Button>
+        }
+        className='card-class'
+      >
+        <Paragraph>
+          Price:{' '}
+          <Text strong>
+            {(itemData.price * usingCurrency.value).toFixed(2)}{' '}
+            {usingCurrency.sign}
+          </Text>
+        </Paragraph>
+        <Paragraph>
+          Estimated date:{' '}
+          <Text strong>
+            {new Date(itemData.deliveryESTDate).toDateString()}
+          </Text>
+        </Paragraph>
+        {Date.now() > itemData.deliveryESTDate ? (
+          <Alert
+            message='Still not here? Contact the seller.'
+            type='error'
+          />
+        ) : (
+          <Alert message='Everything is cool.... wait for delivery.' />
+        )}
+      </Card>
+    </div>
   );
 }
 

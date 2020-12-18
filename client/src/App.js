@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCurrency } from './actions';
+import { updateCurrency, screenSizeChanges } from './actions';
 import MainItemList from './components/MainItemList';
 import ReceivedList from './components/ReceivedList';
 import NavBar from './components/NavBar';
@@ -54,6 +54,19 @@ function App() {
       clearInterval(interval);
     };
   }, [dispatch, hashString, lastCurrency]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(
+        screenSizeChanges({
+          height: window.innerHeight,
+          width: window.innerWidth,
+        })
+      );
+    };
+    // Listen to screen resize
+    window.addEventListener('resize', handleResize);
+  });
 
   return (
     <div className='App'>

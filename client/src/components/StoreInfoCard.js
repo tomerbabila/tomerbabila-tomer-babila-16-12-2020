@@ -10,8 +10,8 @@ function StoreInfoCard({ storeData }) {
   );
 
   return (
-    <div>
-      <Card title={storeData.store}>
+    <div className='card-margin'>
+      <Card title={storeData.store} className='card-class'>
         <Paragraph>
           You bought from this store:{' '}
           <Text strong>{storeData.items.length}</Text> items.

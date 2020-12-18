@@ -10,7 +10,7 @@ function NavBar() {
   const tab = useSelector((state) => state.antdReducer.currentTab);
 
   return (
-    <div>
+    <div className='navbar'>
       <h2>Items Tracker</h2>
       <Menu
         mode='horizontal'

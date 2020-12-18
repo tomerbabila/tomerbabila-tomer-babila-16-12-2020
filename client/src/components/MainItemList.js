@@ -30,7 +30,7 @@ function MainItemList() {
   };
 
   return (
-    <div style={{ width: '60vw' }}>
+    <div className='content-class'>
       {currency && (
         <Tabs
           tabBarExtraContent={

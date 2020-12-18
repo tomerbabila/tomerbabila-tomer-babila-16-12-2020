@@ -7,13 +7,13 @@ const { TabPane } = Tabs;
 
 function ItemList() {
   const items = useSelector((state) => state.mainReducer.itemList);
+  const screenSize = useSelector((state) => state.mainReducer.screenSize);
 
   return (
     <div>
-      {/* TODO: make tabPosition responsive - 'top' in small screens */}
       <Tabs
         defaultActiveKey='1'
-        tabPosition={window.innerWidth > 600 ? 'left' : 'top'}
+        tabPosition={screenSize.width > 850 ? 'left' : 'top'}
         size={'large'}
       >
         {items &&
@@ -21,7 +21,7 @@ function ItemList() {
             <TabPane
               tab={`${storeData.store}`}
               key={storeData.store}
-              style={{ height: 500, overflow: 'auto' }}
+              className='list-class'
             >
               {storeData.items &&
                 storeData.items.map((item) => (
