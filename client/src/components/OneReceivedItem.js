@@ -13,39 +13,43 @@ function OneReceivedItem({ itemData, storeName }) {
   );
 
   const backItemToItemList = async () => {
-    const deleteReqBody = {
-      id: itemData.id,
-      store: storeName,
-    };
+    try {
+      const deleteReqBody = {
+        id: itemData.id,
+        store: storeName,
+      };
 
-    // Delete item from received item list
-    const receivedItem = await fetch('/api/v1/receivedItems', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(deleteReqBody),
-    }).then((response) => response.json());
+      // Delete item from received item list
+      const receivedItem = await fetch('/api/v1/receivedItems', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(deleteReqBody),
+      }).then((response) => response.json());
 
-    const postReqBody = {
-      ...receivedItem,
-      store: storeName,
-    };
+      const postReqBody = {
+        ...receivedItem,
+        store: storeName,
+      };
 
-    // Add item back to item list
-    await fetch('/api/v1/items', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(postReqBody),
-    }).then((response) => response.json());
+      // Add item back to item list
+      await fetch('/api/v1/items', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postReqBody),
+      }).then((response) => response.json());
 
-    // Change state
-    const newState = await fetch('/api/v1/receivedItems').then((res) =>
-      res.json()
-    );
-    dispatch(editReceivedList(newState));
+      // Change state
+      const newState = await fetch('/api/v1/receivedItems').then((res) =>
+        res.json()
+      );
+      dispatch(editReceivedList(newState));
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   return (

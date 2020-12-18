@@ -45,27 +45,33 @@ function ItemList() {
     setConfirmLoading(true);
 
     (async () => {
-      const postReqBody = {
-        name: newItemName,
-        store: newItemStore,
-        deliveryESTDate: newItemDate,
-        price: newItemPrice,
-      };
+      try {
+        const postReqBody = {
+          name: newItemName,
+          store: newItemStore,
+          deliveryESTDate: newItemDate,
+          price: newItemPrice,
+        };
 
-      await fetch('/api/v1/items', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(postReqBody),
-      }).then((response) => response.json());
+        await fetch('/api/v1/items', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(postReqBody),
+        }).then((response) => response.json());
 
-      // Load all items and their stores to state
-      const itemsData = await fetch('/api/v1/items').then((res) => res.json());
-      dispatch(editItemList(itemsData));
+        // Load all items and their stores to state
+        const itemsData = await fetch('/api/v1/items').then((res) =>
+          res.json()
+        );
+        dispatch(editItemList(itemsData));
 
-      setVisible(false);
-      setConfirmLoading(false);
+        setVisible(false);
+        setConfirmLoading(false);
+      } catch (error) {
+        throw new Error(error);
+      }
     })();
   };
 

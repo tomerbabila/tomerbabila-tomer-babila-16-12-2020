@@ -20,10 +20,14 @@ function MainReceivedList() {
   // Load all items and stores to state
   useEffect(() => {
     (async () => {
-      const data = await fetch('/api/v1/receivedItems').then((res) =>
-        res.json()
-      );
-      dispatch(editReceivedList(data));
+      try {
+        const data = await fetch('/api/v1/receivedItems').then((res) =>
+          res.json()
+        );
+        dispatch(editReceivedList(data));
+      } catch (error) {
+        throw new Error(error);
+      }
     })();
   }, [dispatch]);
 

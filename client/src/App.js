@@ -10,11 +10,12 @@ import { updateCurrency, screenSizeChanges } from './actions';
 import MainItemList from './components/MainItemList';
 import MainReceivedList from './components/MainReceivedList';
 import NavBar from './components/NavBar';
+import ErrorBoundary from './components/ErrorBoundary';
 import './styles/App.css';
 
 function App() {
   const dispatch = useDispatch();
-  
+
   const lastCurrency = useSelector((state) => state.currencyReducer.currency);
   const time = useSelector((state) => state.currencyReducer.time);
 
@@ -35,16 +36,20 @@ function App() {
   // Fetch current currency base on USD every 10 seconds
   useEffect(() => {
     const getCurrency = async () => {
-      const currentCurrency = await fetch(
-        'https://api.exchangeratesapi.io/latest?base=USD'
-      ).then((res) => res.json());
+      try {
+        const currentCurrency = await fetch(
+          'https://api.exchangeratesapi.io/latest?base=USD'
+        ).then((res) => res.json());
 
-      // Change the state if changed
-      if (
-        hashString(JSON.stringify(lastCurrency)) !==
-        hashString(JSON.stringify(currentCurrency))
-      ) {
-        dispatch(updateCurrency(currentCurrency));
+        // Change the state if changed
+        if (
+          hashString(JSON.stringify(lastCurrency)) !==
+          hashString(JSON.stringify(currentCurrency))
+        ) {
+          dispatch(updateCurrency(currentCurrency));
+        }
+      } catch (error) {
+        throw new Error(error);
       }
     };
 
@@ -72,18 +77,20 @@ function App() {
 
   return (
     <div className='App'>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path='/list'>
-            <MainItemList />
-          </Route>
-          <Route path='/received'>
-            <MainReceivedList />
-          </Route>
-          <Redirect from='/' to='/list' />
-        </Switch>
-      </Router>
+      <ErrorBoundary>
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route path='/list'>
+              <MainItemList />
+            </Route>
+            <Route path='/received'>
+              <MainReceivedList />
+            </Route>
+            <Redirect from='/' to='/list' />
+          </Switch>
+        </Router>
+      </ErrorBoundary>
     </div>
   );
 }

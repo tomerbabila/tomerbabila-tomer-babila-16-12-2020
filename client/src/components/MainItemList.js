@@ -26,13 +26,19 @@ function MainItemList() {
 
   useEffect(() => {
     (async () => {
-      // Load all items and their stores to state
-      const itemsData = await fetch('/api/v1/items').then((res) => res.json());
-      const allStores = itemsData.map((storeData) => {
-        return { value: storeData.store };
-      });
-      dispatch(editItemList(itemsData));
-      dispatch(editOptions(allStores));
+      try {
+        // Load all items and their stores to state
+        const itemsData = await fetch('/api/v1/items').then((res) =>
+          res.json()
+        );
+        const allStores = itemsData.map((storeData) => {
+          return { value: storeData.store };
+        });
+        dispatch(editItemList(itemsData));
+        dispatch(editOptions(allStores));
+      } catch (error) {
+        throw new Error(error);
+      }
     })();
   }, [dispatch]);
 
