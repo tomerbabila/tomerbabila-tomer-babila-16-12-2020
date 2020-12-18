@@ -3,7 +3,12 @@ import ItemList from './ItemList';
 import StoresInfo from './StoresInfo';
 import { Tabs, Select, Typography, Divider } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { editItemList, changeUsingCurrency, updateTime } from '../actions';
+import {
+  editItemList,
+  changeUsingCurrency,
+  updateTime,
+  editOptions,
+} from '../actions';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -23,7 +28,11 @@ function MainItemList() {
     (async () => {
       // Load all items and their stores to state
       const itemsData = await fetch('/api/v1/items').then((res) => res.json());
+      const allStores = itemsData.map((storeData) => {
+        return { value: storeData.store };
+      });
       dispatch(editItemList(itemsData));
+      dispatch(editOptions(allStores));
     })();
   }, [dispatch]);
 

@@ -58,6 +58,7 @@ function MainReceivedList() {
                 </Option>
               </Select>
               <Divider type='vertical' />
+              {screenSize.width > 1000 ? <Text>Currency: </Text> : null}
               <Select
                 value={usingCurrency.sign}
                 onChange={handleCurrencyChange}

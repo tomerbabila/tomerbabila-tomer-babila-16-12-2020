@@ -53,7 +53,11 @@ function OneReceivedItem({ itemData, storeName }) {
       <Card
         title={itemData.name}
         extra={
-          <Button type='primary' onClick={() => backItemToItemList()}>
+          <Button
+            type='primary'
+            onClick={() => backItemToItemList()}
+            style={{ background: '#f93154', borderColor: '#f93154' }}
+          >
             Recall
           </Button>
         }

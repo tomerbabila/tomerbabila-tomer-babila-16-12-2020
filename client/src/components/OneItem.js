@@ -50,7 +50,11 @@ function OneItem({ itemData, storeName }) {
       <Card
         title={itemData.name}
         extra={
-          <Button type='primary' onClick={() => moveItemToReceivedItems()}>
+          <Button
+            type='primary'
+            onClick={() => moveItemToReceivedItems()}
+            style={{ background: '#00b74a', borderColor: '#00b74a' }}
+          >
             Received
           </Button>
         }

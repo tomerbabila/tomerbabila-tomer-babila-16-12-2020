@@ -46,3 +46,10 @@ export const updateTime = (newTime) => {
     payload: newTime,
   };
 };
+
+export const editOptions = (options) => {
+  return {
+    type: 'EDIT_OPTIONS',
+    payload: options,
+  };
+}
