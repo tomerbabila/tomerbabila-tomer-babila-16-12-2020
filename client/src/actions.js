@@ -39,3 +39,10 @@ export const screenSizeChanges = (newSize) => {
     payload: newSize,
   };
 };
+
+export const updateTime = (newTime) => {
+  return {
+    type: 'CHANGE_TIME',
+    payload: newTime,
+  };
+};

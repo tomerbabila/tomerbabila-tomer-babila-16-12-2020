@@ -14,7 +14,9 @@ import './styles/App.css';
 
 function App() {
   const dispatch = useDispatch();
+  
   const lastCurrency = useSelector((state) => state.currencyReducer.currency);
+  const time = useSelector((state) => state.currencyReducer.time);
 
   // Use hash function to check if the state has been changed
   const hashString = useCallback((str) => {
@@ -37,7 +39,7 @@ function App() {
         'https://api.exchangeratesapi.io/latest?base=USD'
       ).then((res) => res.json());
 
-      // Change the state if it changed
+      // Change the state if changed
       if (
         hashString(JSON.stringify(lastCurrency)) !==
         hashString(JSON.stringify(currentCurrency))
@@ -48,12 +50,12 @@ function App() {
 
     getCurrency();
 
-    const interval = setInterval(() => getCurrency(), 10000);
+    const interval = setInterval(() => getCurrency(), time);
 
     return () => {
       clearInterval(interval);
     };
-  }, [dispatch, hashString, lastCurrency]);
+  }, [time, lastCurrency, dispatch, hashString]);
 
   useEffect(() => {
     const handleResize = () => {

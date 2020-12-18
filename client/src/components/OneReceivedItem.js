@@ -42,7 +42,6 @@ function OneReceivedItem({ itemData, storeName }) {
     }).then((response) => response.json());
 
     // Change state
-    // TODO: change fetch to local state change (slice from array)
     const newState = await fetch('/api/v1/receivedItems').then((res) =>
       res.json()
     );

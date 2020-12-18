@@ -4,6 +4,7 @@ const initialState = {
     sign: 'USD',
     value: 1,
   },
+  time: 10000,
 };
 
 function currencyReducer(state = initialState, action) {
@@ -12,6 +13,8 @@ function currencyReducer(state = initialState, action) {
       return { ...state, currency: action.payload };
     case 'CHANGE_USING_CURRENCY':
       return { ...state, usingCurrency: action.payload };
+    case 'CHANGE_TIME':
+      return { ...state, time: action.payload };
     default:
       return state;
   }

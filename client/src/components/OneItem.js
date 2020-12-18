@@ -41,7 +41,6 @@ function OneItem({ itemData, storeName }) {
     }).then((response) => response.json());
 
     // Change state
-    // TODO: change fetch to local state change (slice from array)
     const newState = await fetch('/api/v1/items').then((res) => res.json());
     dispatch(editItemList(newState));
   };
@@ -71,12 +70,9 @@ function OneItem({ itemData, storeName }) {
           </Text>
         </Paragraph>
         {Date.now() > itemData.deliveryESTDate ? (
-          <Alert
-            message='Still not here? Contact the seller.'
-            type='error'
-          />
+          <Alert message='Still not here? Contact the seller.' type='error' />
         ) : (
-          <Alert message='Everything is cool.... wait for delivery.' />
+          <Alert message='Everything is cool... wait for delivery.' />
         )}
       </Card>
     </div>
