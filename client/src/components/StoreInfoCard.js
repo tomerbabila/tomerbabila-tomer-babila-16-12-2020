@@ -18,10 +18,13 @@ function StoreInfoCard({ storeData }) {
         </Paragraph>
         <Paragraph>
           Total amount:{' '}
-          {(
-            storeData.items.reduce((a, { price }) => a + price, 0) *
-            usingCurrency.value
-          ).toFixed(2)}
+          <Text strong>
+            {(
+              storeData.items.reduce((a, { price }) => a + price, 0) *
+              usingCurrency.value
+            ).toFixed(2)}{' '}
+            {usingCurrency.sign}
+          </Text>
         </Paragraph>
       </Card>
     </div>

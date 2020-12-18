@@ -10,6 +10,7 @@ const { Option } = Select;
 
 function MainItemList() {
   const dispatch = useDispatch();
+  
   const currency = useSelector((state) => state.currencyReducer.currency);
   const usingCurrency = useSelector(
     (state) => state.currencyReducer.usingCurrency
