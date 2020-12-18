@@ -11,6 +11,7 @@ import MainItemList from './components/MainItemList';
 import MainReceivedList from './components/MainReceivedList';
 import NavBar from './components/NavBar';
 import ErrorBoundary from './components/ErrorBoundary';
+import NotFound from './components/NotFound';
 import './styles/App.css';
 
 function App() {
@@ -87,7 +88,12 @@ function App() {
             <Route path='/received'>
               <MainReceivedList />
             </Route>
-            <Redirect from='/' to='/list' />
+
+            <Redirect exact from='/' to='/list' />
+
+            <Route>
+              <NotFound />
+            </Route>
           </Switch>
         </Router>
       </ErrorBoundary>
