@@ -49,12 +49,25 @@ router.post('/', (req, res) => {
 router.delete('/', (req, res) => {
   try {
     const { id, store } = req.body;
+
     const removedItem = db
       .get('itemList')
       .find({ store })
       .get('items')
       .remove({ id })
       .write();
+
+    // Check if store is empty and if yes, delete it as well
+    const checkStoreEmpty = db
+      .get('itemList')
+      .find({ store })
+      .get('items')
+      .value();
+
+    if (checkStoreEmpty.length === 0) {
+      db.get('itemList').remove({ store }).write();
+    }
+
     res.send(...removedItem);
   } catch (error) {
     console.log(error);

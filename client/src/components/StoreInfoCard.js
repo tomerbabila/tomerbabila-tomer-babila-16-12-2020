@@ -13,11 +13,11 @@ function StoreInfoCard({ storeData }) {
     <div className='card-margin'>
       <Card title={storeData.store} className='card-class'>
         <Paragraph>
-          You bought from this store:{' '}
-          <Text strong>{storeData.items.length}</Text> items.
+          You have <Text strong>{storeData.items.length}</Text> pending items in
+          this store.
         </Paragraph>
         <Paragraph>
-          Total amount:{' '}
+          Total price:{' '}
           <Text strong>
             {(
               storeData.items.reduce((a, { price }) => a + price, 0) *
