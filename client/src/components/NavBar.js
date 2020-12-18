@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Menu, Typography } from 'antd';
 import { ProfileOutlined, FileDoneOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeTab } from '../actions';
+
+const { Title } = Typography;
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -11,7 +13,7 @@ function NavBar() {
 
   return (
     <div className='navbar'>
-      <h2>Items Tracker</h2>
+      <Title>Items Tracker</Title>
       <Menu
         mode='horizontal'
         onClick={(e) => dispatch(changeTab(e.key))}
