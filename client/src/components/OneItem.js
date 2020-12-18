@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Typography, Button, Alert } from 'antd';
+import React, { useState } from 'react';
+import { Card, Typography, Button, Alert, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { editItemList } from '../actions';
 
@@ -7,12 +7,17 @@ const { Paragraph, Text } = Typography;
 
 function OneItem({ itemData, storeName }) {
   const dispatch = useDispatch();
+
   const usingCurrency = useSelector(
     (state) => state.currencyReducer.usingCurrency
   );
 
+  const [loading, setLoading] = useState(false);
+
   const moveItemToReceivedItems = async () => {
     try {
+      setLoading(true);
+
       const deleteReqBody = {
         id: itemData.id,
         store: storeName,
@@ -44,6 +49,10 @@ function OneItem({ itemData, storeName }) {
       // Change state
       const newState = await fetch('/api/v1/items').then((res) => res.json());
       dispatch(editItemList(newState));
+
+      setLoading(false);
+
+      message.success('Item received!');
     } catch (error) {
       throw new Error(error);
     }
@@ -58,6 +67,7 @@ function OneItem({ itemData, storeName }) {
             type='primary'
             onClick={() => moveItemToReceivedItems()}
             style={{ background: '#00b74a', borderColor: '#00b74a' }}
+            loading={loading}
           >
             Received
           </Button>

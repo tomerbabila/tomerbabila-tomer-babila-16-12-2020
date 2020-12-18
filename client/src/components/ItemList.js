@@ -11,6 +11,7 @@ import {
   InputNumber,
   DatePicker,
   AutoComplete,
+  message,
 } from 'antd';
 import OneItem from './OneItem';
 import { editItemList } from '../actions';
@@ -69,6 +70,8 @@ function ItemList() {
 
         setVisible(false);
         setConfirmLoading(false);
+
+        message.success('Item added successfully!');
       } catch (error) {
         throw new Error(error);
       }

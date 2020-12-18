@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Typography, Button } from 'antd';
+import React, { useState } from 'react';
+import { Card, Typography, Button, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { editReceivedList } from '../actions';
 
@@ -12,8 +12,12 @@ function OneReceivedItem({ itemData, storeName }) {
     (state) => state.currencyReducer.usingCurrency
   );
 
+  const [loading, setLoading] = useState(false);
+
   const backItemToItemList = async () => {
     try {
+      setLoading(true);
+
       const deleteReqBody = {
         id: itemData.id,
         store: storeName,
@@ -47,6 +51,10 @@ function OneReceivedItem({ itemData, storeName }) {
         res.json()
       );
       dispatch(editReceivedList(newState));
+
+      setLoading(false);
+
+      message.warning('Item recall!');
     } catch (error) {
       throw new Error(error);
     }
@@ -61,6 +69,7 @@ function OneReceivedItem({ itemData, storeName }) {
             type='primary'
             onClick={() => backItemToItemList()}
             style={{ background: '#f93154', borderColor: '#f93154' }}
+            loading={loading}
           >
             Recall
           </Button>
