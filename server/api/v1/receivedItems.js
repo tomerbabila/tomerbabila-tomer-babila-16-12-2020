@@ -7,6 +7,10 @@ const router = Router();
 router.get('/', async (req, res) => {
   try {
     const receivedItems = await db.get('receivedList').value();
+    // Sort items new to old
+    for (const store of receivedItems) {
+      store.items.sort((a, b) => b.deliveryESTDate - a.deliveryESTDate);
+    }
     res.send(receivedItems);
   } catch (error) {
     console.log(error);
