@@ -1,26 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import OneReceivedItem from './OneReceivedItem';
-import { useSelector, useDispatch } from 'react-redux';
-import { editReceivedList } from '../actions';
+import { useSelector } from 'react-redux';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
 function ReceivedList() {
-  const dispatch = useDispatch();
-
   const receivedItems = useSelector((state) => state.mainReducer.receivedList);
   const screenSize = useSelector((state) => state.mainReducer.screenSize);
-
-  // Load all items and stores to state
-  useEffect(() => {
-    (async () => {
-      const data = await fetch('/api/v1/receivedItems').then((res) =>
-        res.json()
-      );
-      dispatch(editReceivedList(data));
-    })();
-  }, [dispatch]);
 
   return (
     <div>

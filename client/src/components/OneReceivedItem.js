@@ -50,26 +50,28 @@ function OneReceivedItem({ itemData, storeName }) {
   };
 
   return (
-    <Card
-      title={itemData.name}
-      extra={
-        <Button type='primary' onClick={() => backItemToItemList()}>
-          Recall
-        </Button>
-      }
-      className='card-class'
-    >
-      <Paragraph>
-        Price:{' '}
-        <Text strong>
-          {(itemData.price * usingCurrency.value).toFixed(2)}{' '}
-          {usingCurrency.sign}
-        </Text>
-      </Paragraph>
-      <Paragraph>
-        <Text strong>Item arrived!</Text>
-      </Paragraph>
-    </Card>
+    <div className='card-margin'>
+      <Card
+        title={itemData.name}
+        extra={
+          <Button type='primary' onClick={() => backItemToItemList()}>
+            Recall
+          </Button>
+        }
+        className='card-class'
+      >
+        <Paragraph>
+          Price:{' '}
+          <Text strong>
+            {(itemData.price * usingCurrency.value).toFixed(2)}{' '}
+            {usingCurrency.sign}
+          </Text>
+        </Paragraph>
+        <Paragraph>
+          <Text strong>Item arrived!</Text>
+        </Paragraph>
+      </Card>
+    </div>
   );
 }
 

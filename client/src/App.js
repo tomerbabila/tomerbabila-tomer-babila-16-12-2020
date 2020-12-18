@@ -8,7 +8,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrency, screenSizeChanges } from './actions';
 import MainItemList from './components/MainItemList';
-import ReceivedList from './components/ReceivedList';
+import MainReceivedList from './components/MainReceivedList';
 import NavBar from './components/NavBar';
 import './styles/App.css';
 
@@ -77,7 +77,7 @@ function App() {
             <MainItemList />
           </Route>
           <Route path='/received'>
-            <ReceivedList />
+            <MainReceivedList />
           </Route>
           <Redirect from='/' to='/list' />
         </Switch>

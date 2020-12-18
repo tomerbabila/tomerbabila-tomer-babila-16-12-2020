@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
-import ItemList from './ItemList';
-import StoresInfo from './StoresInfo';
+import ReceivedList from './ReceivedList';
 import { Tabs, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { editItemList, changeUsingCurrency } from '../actions';
+import { editReceivedList, changeUsingCurrency } from '../actions';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-function MainItemList() {
+function MainReceivedList() {
   const dispatch = useDispatch();
 
   const currency = useSelector((state) => state.currencyReducer.currency);
   const usingCurrency = useSelector(
     (state) => state.currencyReducer.usingCurrency
   );
-
+  // Load all items and stores to state
   useEffect(() => {
     (async () => {
-      // Load all items and their stores to state
-      const itemsData = await fetch('/api/v1/items').then((res) => res.json());
-      dispatch(editItemList(itemsData));
+      const data = await fetch('/api/v1/receivedItems').then((res) =>
+        res.json()
+      );
+      dispatch(editReceivedList(data));
     })();
   }, [dispatch]);
 
@@ -44,11 +44,8 @@ function MainItemList() {
             </Select>
           }
         >
-          <TabPane tab='Items' key='1'>
-            <ItemList />
-          </TabPane>
-          <TabPane tab='Stores Information' key='2'>
-            <StoresInfo />
+          <TabPane tab='Received Items' key='1'>
+            <ReceivedList />
           </TabPane>
         </Tabs>
       )}
@@ -56,4 +53,4 @@ function MainItemList() {
   );
 }
 
-export default MainItemList;
+export default MainReceivedList;
